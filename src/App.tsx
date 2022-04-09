@@ -1,10 +1,12 @@
 import React from 'react';
+import S from './App.module.css';
+
 
 function App() {
   return (
-    <div className="App">
+    <main className={S.main}>
 
-    </div>
+    </main>
   );
 }
 

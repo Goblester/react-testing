@@ -1,0 +1,11 @@
+
+
+.main {
+    display: flex;
+    max-width: 400px;
+    min-height: 110vh;
+    margin: auto;
+    padding: 10px 20px;
+
+    flex-direction: column;
+}
