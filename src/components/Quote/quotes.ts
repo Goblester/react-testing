@@ -1,5 +1,8 @@
 
-
+export type QuoteType = {
+    text: string
+    author: string
+}
 
 export const quotes = [
     {text: 'работа не волк - в лес не убежит', author: 'Народная пословица'},
