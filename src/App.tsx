@@ -1,5 +1,6 @@
 import React from 'react';
 import S from './App.module.css';
+import Quote from "./components/Quote";
 
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
         <main className={S.main}>
             {/*Header*/}
             {/*Converter form*/}
-            {/*Footer*/}
+            <Quote/>
         </main>
     );
 }
