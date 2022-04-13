@@ -1,4 +1,4 @@
-import {quotes, QuoteType} from "./quotes";
+import {QuoteType} from "./quotes";
 
 
 export const selectRandomQuote = (quotes: Array<QuoteType>): QuoteType => {

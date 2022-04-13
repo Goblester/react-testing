@@ -3,9 +3,9 @@
 .main {
     display: flex;
     max-width: 400px;
-    min-height: 110vh;
+    min-height: 100vh;
     margin: auto;
     padding: 10px 20px;
-
+    justify-content: center;
     flex-direction: column;
 }
