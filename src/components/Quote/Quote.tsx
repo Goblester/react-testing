@@ -1,11 +1,15 @@
+import {quotes} from "./quotes";
 
 
 export const Quote = () => {
+    const quote = quotes[0]
 
     return (
-        <blockquote>
-            Test Quote
-        </blockquote>
+        <>
+            <blockquote>{quote.text}</blockquote>
+            <cite>- {quote.author}</cite>
+        </>
+
     )
 }
 
