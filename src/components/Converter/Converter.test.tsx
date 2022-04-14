@@ -28,7 +28,7 @@ describe('when rendered', () => {
     })
 })
 
-describe(' when typed in a RUB input', () => {
+describe('when typed in a RUB input', () => {
     it('should update its value', async () => {
         render(<Converter/>)
         const input = screen.getByLabelText(/Сумма в рублях/);
