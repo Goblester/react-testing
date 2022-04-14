@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import S from './Converter.module.css';
 import {useConverter} from "./useConverter";
 
 export const Converter: React.FC = () => {
-    const {rub, usd, updateUsd, updateRub} = useConverter()
+    const {rub, usd, updateUsd, updateRub} = useConverter(100, 42)
 
     return (
         <form className={S.converter}>
