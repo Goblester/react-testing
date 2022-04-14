@@ -1,9 +1,11 @@
 import {useState} from "react";
+import {rubToUsd} from "../../domain/converter";
 
 
-export const useConverter = () => {
-    const [rub, setRub] = useState(100)
-    const [usd, setUsd] = useState(1)
+export const useConverter = (initialRubAmount: number = 100, course: number) => {
+    const calculatedUsdAmount = rubToUsd(initialRubAmount, course)
+    const [rub, setRub] = useState(initialRubAmount)
+    const [usd, setUsd] = useState(calculatedUsdAmount)
 
     return {
         rub,
