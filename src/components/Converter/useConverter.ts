@@ -1,26 +1,36 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {rubToUsd, usdToRub} from "../../domain/converter";
 
+type DirectionType = 'usd-rub' | 'rub-usd'
 
-export const useConverter = (initialRubAmount: number = 100, course: number) => {
+export const useConverter = (initialRubAmount: number, course: number) => {
     const calculatedUsdAmount = rubToUsd(initialRubAmount, course)
     const [rub, setRub] = useState(initialRubAmount)
     const [usd, setUsd] = useState(calculatedUsdAmount)
 
-    const updateRub = (value: string | number) => {
-        const newRub = Number(value)
-        const newUsd = rubToUsd(newRub, course)
-        setRub(newRub)
+    useEffect(() => {
+        setRub(initialRubAmount)
+        const newUsd = rubToUsd(initialRubAmount, course)
         setUsd(newUsd)
+    }, [initialRubAmount, course])
+
+    const createUpdater = (direction: DirectionType) => {
+
+        const isRubConversion = direction === 'rub-usd'
+        const converter = isRubConversion ? rubToUsd : usdToRub
+        const newValueSetter = isRubConversion ? setRub : setUsd
+        const convertSetter = isRubConversion ? setUsd : setRub
+
+        return function update(value: string | number){
+            const newValue = Number(value)
+            const convertValue = converter(newValue, course)
+            newValueSetter(newValue)
+            convertSetter(convertValue)
+        }
     }
 
-    const updateUsd = (value: string | number) => {
-        const newUsd = Number(value)
-        const newRub = usdToRub(newUsd, course)
-        setRub(newRub)
-        setUsd(newUsd)
-    }
-
+    const updateRub = createUpdater('rub-usd')
+    const updateUsd = createUpdater('usd-rub')
     return {
         rub,
         usd,
