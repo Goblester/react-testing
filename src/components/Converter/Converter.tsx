@@ -1,9 +1,12 @@
 import React from "react";
 import S from './Converter.module.css';
 import {useConverter} from "./useConverter";
+import {useAppSelector} from "../../features/store";
+import {courseSelectors} from "../../features/store/course";
 
 export const Converter: React.FC = () => {
-    const {rub, usd, updateUsd, updateRub} = useConverter(100, 42)
+    const currentCourse = useAppSelector(courseSelectors.selectCurrentCourse)
+    const {rub, usd, updateUsd, updateRub} = useConverter(100, currentCourse)
 
     return (
         <form className={S.converter}>

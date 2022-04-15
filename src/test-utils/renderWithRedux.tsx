@@ -8,17 +8,14 @@ import {RootState} from "../features/store";
 
 function render(
     ui: ReactElement,
-    options: {
+    options?: {
         preloadedState: RootState | undefined,
-        renderOptions: any
+        renderOptions?: any
     }
 ) {
 
-    const {
-        preloadedState,
-        renderOptions
-    } = options
-
+    const preloadedState = options?.preloadedState
+    const renderOptions = options?.renderOptions || {}
     const store = configureStore({
         reducer: {
             course: courseReducer
