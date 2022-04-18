@@ -5,6 +5,7 @@ type CourseStateTestType = {
 }
 
 const courseTestState: CourseStateTestType = {
+    idle: initialState,
     loading: {
         ...initialState,
         status: 'loading'

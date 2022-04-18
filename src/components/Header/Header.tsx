@@ -1,13 +1,13 @@
 import S from './Header.module.css';
 import CurrentCourse from "./CurrentCourse";
-import {RequestCourseButton} from "./RequestCourseButton/RequestCourseButton";
+import {RefreshCourse} from "./RequestCourseButton/RefreshCourse";
 
 
 const Header = () => {
 
     return <header className={''}>
         <CurrentCourse/>
-        <RequestCourseButton/>
+        <RefreshCourse/>
     </header>
 }
 

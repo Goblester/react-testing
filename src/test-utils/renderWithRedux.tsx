@@ -9,7 +9,7 @@ import {RootState} from "../features/store";
 function render(
     ui: ReactElement,
     options?: {
-        preloadedState: RootState | undefined,
+        preloadedState?: RootState
         dispatch?: any
         renderOptions?: any
     }
@@ -26,7 +26,8 @@ function render(
         reducer: {
             course: courseReducer
         },
-        preloadedState
+        preloadedState,
+       middleware: getDefaultMiddleware => getDefaultMiddleware().concat(observerMiddleware)
     })
     const Wrapper =({children }: {children: any}) => {
         return <Provider store={store}>{children}</Provider>
