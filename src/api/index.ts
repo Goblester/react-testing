@@ -1,7 +1,12 @@
+export type CourseApiDataType = {
+    date: string
+    usd: {
+        [key: string]: number
+    }
+}
 
-
-export const fetchCourse = async () => {
+export const fetchCourse = async (): Promise<CourseApiDataType> => {
     const response = await fetch('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd.json')
-    const data = await  response.json()
-    return data
+    return await response.json()
+
 }

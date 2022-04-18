@@ -2,6 +2,7 @@ import {screen} from "@testing-library/react";
 import {Converter} from "./Converter";
 import userEvent from "@testing-library/user-event";
 import {render} from "../../test-utils/renderWithRedux";
+import {initialState} from "../../features/store/course/slice";
 
 const mockUpdateRub = jest.fn()
 const mockUpdateUsd = jest.fn()
@@ -36,7 +37,7 @@ describe('when rendered', () => {
     })
 
     it('should call the `useConverter` hook with a course value from the store', () => {
-        const stateMock = {course: {currentCourse: 100500}}
+        const stateMock = {course: {...initialState, currentCourse: 100500}}
         render(<Converter/>, {preloadedState: stateMock})
          expect(mockInitialRender).toHaveBeenCalledWith(100500)
     })
