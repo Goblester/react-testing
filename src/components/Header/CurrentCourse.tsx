@@ -7,7 +7,7 @@ const CurrentCourse = () => {
 
     return (
         <div className={''}>
-            {currentCourse}₽
+            Текущий курс рубля {currentCourse}₽
         </div>
     )
 }

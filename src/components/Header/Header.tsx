@@ -1,11 +1,13 @@
 import S from './Header.module.css';
 import CurrentCourse from "./CurrentCourse";
+import {RequestCourseButton} from "./RequestCourseButton/RequestCourseButton";
 
 
 const Header = () => {
 
     return <header className={''}>
-        Текущий курс рубля <CurrentCourse/>
+        <CurrentCourse/>
+        <RequestCourseButton/>
     </header>
 }
 
