@@ -5,7 +5,7 @@ import getRubCourse from "../../../utils/getRubCourse";
 
 export type CourseStatusType = 'idle' | 'loading' | 'success' | 'error'
 
-type CourseInitialStateType = {
+export type CourseInitialStateType = {
     currentCourse: number
     status: CourseStatusType
     error: string | null
